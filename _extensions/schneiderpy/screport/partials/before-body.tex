@@ -1,0 +1,126 @@
+%% =============================================================
+%%  SCReport – before-body.tex
+%%  Llamado por Quarto justo después de \begin{document}.
+%%  Orden:
+%%    1. Portada (via \maketitle)
+%%    2. Declaración de autoría
+%%    3. Dedicatoria
+%%    4. Agradecimientos
+%%    5. Resumen + Palabras clave
+%%    6. Índice general
+%%    7. Índice de figuras
+%%    8. Índice de tablas
+%%    9. Lista de abreviaturas
+%%   10. Cuerpo principal (numeración arábiga)
+%% =============================================================
+
+%% ── Running title for page headers ───────────────────────────
+%% Set "running-title:" in your YAML front matter.
+%% Falls back to the document title if not set.
+$if(running-title)$
+  \def\scrunningtitle{$running-title$}
+$else$
+  \def\scrunningtitle{$title$}
+$endif$
+
+%% ── 1. PORTADA ───────────────────────────────────────────────
+\maketitle
+
+%% ── 2. DECLARACIÓN DE AUTORÍA ────────────────────────────────
+$if(declaration)$
+\cleardoublepage
+\chapter*{Declaraci\'{o}n de Autor\'{i}a}
+\addcontentsline{toc}{chapter}{Declaraci\'{o}n de Autor\'{i}a}
+\pagestyle{plain}
+
+\noindent Por medio de la presente declaro que esta tesis/disertaci\'{o}n,
+presentada a Schneider \textbar{} Consulting Firm en cumplimiento parcial
+de los requisitos para optar al grado de
+\textit{$if(degree)$$degree$$endif$}, es trabajo original de mi autor\'{i}a.
+Todas las fuentes consultadas han sido debidamente citadas y referenciadas
+siguiendo las normas APA 7.\textordfeminine{} edici\'{o}n.
+Este trabajo no ha sido presentado, total ni parcialmente, para ning\'{u}n
+otro grado o titulaci\'{o}n en esta u otra instituci\'{o}n.
+
+\vspace{2.5cm}
+\noindent\begin{tabular}{@{}p{6cm}p{6cm}@{}}
+  \rule{5.5cm}{0.4pt} & \rule{5.5cm}{0.4pt} \\[4pt]
+  $for(author)$$author.name$$sep$, $endfor$
+    & $if(tutor)$$tutor$$endif$ \\
+  \small Autor/a & \small Tutor/a -- Director/a \\[1.5cm]
+  \rule{5.5cm}{0.4pt} & \\[4pt]
+  \small Fecha & \\
+\end{tabular}
+$endif$
+
+%% ── 3. DEDICATORIA ───────────────────────────────────────────
+$if(dedication)$
+\cleardoublepage
+\pagestyle{empty}
+\null\vspace{4cm}
+\begin{flushright}
+  \itshape $dedication$
+\end{flushright}
+\cleardoublepage
+$endif$
+
+%% ── 4. AGRADECIMIENTOS ───────────────────────────────────────
+$if(acknowledgements)$
+\cleardoublepage
+\chapter*{Agradecimientos}
+\addcontentsline{toc}{chapter}{Agradecimientos}
+\pagestyle{plain}
+$acknowledgements$
+$endif$
+
+%% ── 5. RESUMEN ───────────────────────────────────────────────
+$if(resumen)$
+\cleardoublepage
+\chapter*{Resumen}
+\addcontentsline{toc}{chapter}{Resumen}
+\pagestyle{plain}
+$if(palabras-clave)$
+  \noindent\textit{\textbf{Palabras clave:} $palabras-clave$}
+  \vspace{0.5cm}
+$endif$
+\noindent $resumen$
+$endif$
+
+%% ── 6. ÍNDICE GENERAL all indices from Pandocs yaml ───────────
+%% Babel/spanish auto-translates \tableofcontents → "Índice general"
+% \cleardoublepage
+% \pagestyle{plain}
+% \tableofcontents
+
+%% ── 7. ÍNDICE DE FIGURAS ─────────────────────────────────────
+% \cleardoublepage
+% \listoffigures
+% \addcontentsline{toc}{chapter}{\listfigurename}
+
+%% ── 8. ÍNDICE DE TABLAS ──────────────────────────────────────
+% \cleardoublepage
+% \listoftables
+% \addcontentsline{toc}{chapter}{\listtablename}
+
+%% ── 9. LISTA DE ABREVIATURAS ─────────────────────────────────
+$if(abbreviations)$
+\cleardoublepage
+\chapter*{Lista de Abreviaturas}
+\addcontentsline{toc}{chapter}{Lista de Abreviaturas}
+\pagestyle{plain}
+\begin{longtable}{@{}p{3cm}p{11cm}@{}}
+  \toprule
+  \textbf{Abreviatura} & \textbf{Definici\'{o}n} \\
+  \midrule
+  \endhead
+  $for(abbreviations)$
+    $abbreviations$ \\
+  $endfor$
+  \bottomrule
+\end{longtable}
+$endif$
+
+%% ── 10. CUERPO PRINCIPAL ─────────────────────────────────────
+\cleardoublepage
+\pagenumbering{arabic}
+\pagestyle{fancy}

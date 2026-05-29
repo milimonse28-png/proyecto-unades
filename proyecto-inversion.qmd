@@ -1,0 +1,99 @@
+---
+title: "Titulo de tu proyecto"
+subtitle: "Reporte Final"
+running-title: "Estudio de Factibilidad"   # short title for page headers
+date: "Marzo 2026"
+date-format: "MMMM YYYY"
+degree: "Licenciado en Administracion de Empresas"
+# used costum yaml field to avoid conflicts
+institucion: "Universidad del Sol"
+department: "Facultad de Ciencias Empresariales"
+
+author:
+  - name: Milagros Alderete
+    # degrees: "MSc"
+    # email: "autor1@institucion.edu"
+    # orcid: "0000-0000-0000-0001"
+    # affiliations:
+    #   - name: "Universidad del Sol"
+  - name: Nayeli Pereira
+    # degrees: "PhD"
+    # email: "autor2@institucion.edu"
+    # orcid: "0000-0000-0000-0002"
+    # affiliations:
+    #   - name: "Universidad del Sol"
+
+lang: es
+
+# ── Front matter switches ──────────────────────────────────────
+declaration: false
+confidential: false   # set to true to add confidentiality banner
+
+acknowledgements: |
+  Quisiera expresar mi más sincero agradecimiento a mi tutor/a, **Dr. Jane Smith**,
+  por su orientación y valiosos comentarios a lo largo de esta investigación.
+  Asimismo, agradezco al equipo de Schneider | Consulting Firm por su apoyo
+  durante el desarrollo de este trabajo.
+
+# ── Abstracts ─────────────────────────────────────────────────
+
+resumen: |
+  Esta disertación explora la aplicación de técnicas de aprendizaje automático
+  al análisis de consultoría. Utilizando un enfoque de métodos mixtos, demostramos
+  que los modelos predictivos pueden mejorar significativamente la precisión de
+  las decisiones en un 34\% en comparación con los métodos heurísticos tradicionales.
+  Nuestros hallazgos contribuyen al creciente conjunto de evidencia que respalda
+  los marcos de consultoría basados en datos.
+keywords-es: "aprendizaje automático, análisis de consultoría, modelos predictivos, ciencia de datos"
+
+
+# ── Bibliography ──────────────────────────────────────────────
+bibliography: references.bib
+
+# ── Format ────────────────────────────────────────────────────
+format:
+  screport-pdf: default
+  screport-html: default
+---
+
+
+# Descripción del Proyecto {#sec-descripcion}
+
+
+
+## Antecedentes
+
+
+
+## Objetivos
+## Alcance
+
+# Análisis de Mercado {#sec-mercado}
+
+## Mercado Objetivo
+## Análisis de la Competencia
+## Demanda Proyectada
+
+# Análisis Técnico {#sec-tecnico}
+
+## Descripción del Proceso
+## Infraestructura y Equipamiento
+## Localización
+
+# Análisis Financiero {#sec-financiero}
+
+## Inversión Inicial
+## Proyección de Ingresos y Costos
+## Indicadores: VAN, TIR, Payback
+
+# Análisis de Riesgos {#sec-riesgos}
+
+# Conclusión y Recomendación {#sec-conclusion}
+
+# Referencias {.unnumbered}
+
+::: {#refs}
+:::
+
+
+# Apéndices {.unnumbered}

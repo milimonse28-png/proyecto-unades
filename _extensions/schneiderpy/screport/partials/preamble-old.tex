@@ -1,0 +1,128 @@
+%% =============================================================
+%%  SCReport – preamble.tex
+%%  All LaTeX package declarations and document settings.
+%%  Loaded via include-in-header in _extension.yml.
+%%  Do NOT add \begin{document} here.
+%% =============================================================
+
+%% ── Babel language options must be passed BEFORE Quarto loads
+%%    Babel internally (with bidi=default), otherwise a
+%%    "already loaded" conflict error is thrown. Remove english after
+%%    spanish in the PassOptionsToPackage command to keep just spanish
+\PassOptionsToPackage{spanish}{babel}
+
+%% ── Core packages ────────────────────────────────────────────
+\usepackage{fontspec}
+%% ── FONTS ────────────────────────────────────────────────────
+\usepackage{fontspec}
+\setmainfont{Times New Roman}[
+  BoldFont       = Times New Roman Bold,
+  ItalicFont     = Times New Roman Italic,
+  BoldItalicFont = Times New Roman Bold Italic
+]
+\setsansfont{Arial}
+\setmonofont{Courier New}
+\usepackage{microtype}
+
+%% ── CORE PACKAGES ────────────────────────────────────────────
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{etoolbox}
+\usepackage{parskip}
+\usepackage{csquotes}
+
+%% ── Graphics & Figures ───────────────────────────────────────
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{tikz}
+
+%% ── Tables ───────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+
+%% ── Headers, footers & section titles ────────────────────────
+\usepackage{fancyhdr}
+%% \scrunningtitle is set from YAML in before-body.tex.
+%% Empty fallback defined here so preamble compiles standalone.
+\def\scrunningtitle{}
+\usepackage{titlesec}
+% \usepackage{titletoc}
+% \usepackage{tocloft}
+
+%% ── Colours & code ───────────────────────────────────────────
+\usepackage{xcolor}
+\usepackage{fancyvrb}
+\usepackage{framed}
+
+%% ── Nomenclature ─────────────────────────────────────────────
+\usepackage{nomencl}
+\makenomenclature
+
+%% ── Graphics search path ─────────────────────────────────────
+%%    XeLaTeX will look in these folders for images.
+%%    Place all figures inside your project's images/ folder.
+%% \graphicspath{{images/}}
+
+%% fancy style — running title left, chapter name right
+\fancypagestyle{fancy}{%
+  \fancyhf{}
+  \fancyhead[L]{\small\textit{\scrunningtitle}}
+  \fancyhead[R]{\small\textit{\leftmark}}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0pt}}
+
+%% plain style — front matter pages: page number only, no header
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}}
+
+\setlength{\headheight}{15pt}
+
+%% ── Chapter & section title formats ─────────────────────────
+\titleformat{\chapter}[display]
+  {\normalfont\Large\bfseries\centering}
+  {\chaptertitlename\ \thechapter}{12pt}{\Large}
+\titlespacing*{\chapter}{0pt}{-20pt}{20pt}
+
+\titleformat{\section}
+  {\normalfont\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\itshape}{\thesubsubsection}{1em}{}
+
+%% ── TABLE OF CONTENTS ────────────────────────────────────────
+\usepackage{titletoc}
+\usepackage{tocloft}
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftchappagefont}{\bfseries}
+\setlength{\cftbeforechapskip}{6pt}
+%% tocloft defaults to \Huge\bfseries for TOC/LOF/LOT titles —
+%% override to match \titleformat{\chapter}: \Large\bfseries\centering
+\renewcommand{\cfttoctitlefont}{\normalfont\Large\bfseries}
+\renewcommand{\cftloftitlefont}{\normalfont\Large\bfseries}
+\renewcommand{\cftlottitlefont}{\normalfont\Large\bfseries}
+
+%% ── Caption style ────────────────────────────────────────────
+\captionsetup{
+  font        = small,
+  labelfont   = bf,
+  textfont    = it,
+  labelsep    = period
+}
+
+%% ── Code block colours (minimal highlighting) ────────────────
+\definecolor{codebg}{RGB}{248,248,248}
+\definecolor{codeframe}{RGB}{220,220,220}
+
+%% ── Paragraph spacing (APA: indent 0.5in, no extra skip) ─────
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}

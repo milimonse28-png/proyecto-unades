@@ -1,0 +1,9 @@
+---
+format: gfm
+lang: es
+---
+
+<!-- README.md is generated from README.qmd. Please edit that file -->
+
+
+Proyecto de invesion para la Universidad del Sol.

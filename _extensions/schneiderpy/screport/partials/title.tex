@@ -1,0 +1,136 @@
+%% =============================================================
+%%  SCReport – title.tex
+%%  Redefines \maketitle following the Monash thesis pattern.
+%%  Included in the LaTeX preamble via include-in-header.
+%%  Quarto calls \maketitle automatically in the document body.
+%% =============================================================
+
+\def\maketitle{
+  \pagenumbering{roman}
+  {
+    \thispagestyle{empty}
+
+    %% ── Logo ──────────────────────────────────────────────────
+    \null\vskip-.3cm%
+    \centerline{\includegraphics[width=6cm]{images/logo_unades.jpg}}
+    \vspace*{0.5cm}
+
+    %% ── Institution & Department ──────────────────────────────
+    \begin{center}
+      $if(institucion)$
+        {\fontsize{16}{20}\selectfont\bfseries $institucion$\par}
+        \vskip0.2cm
+      $endif$
+      $if(department)$
+        {\fontsize{13}{16}\selectfont\itshape $department$\par}
+      $endif$
+    \end{center}
+
+    \vskip1.2cm
+    \centerline{\rule{0.85\linewidth}{0.5pt}}
+    \vskip0.6cm
+
+    %% ── Title (24pt) & Subtitle (20pt) ───────────────────────
+    \begin{center}
+      {\fontsize{24}{30}\selectfont\bfseries $title$\par}
+      $if(subtitle)$
+        \vskip0.5cm
+        {\fontsize{20}{26}\selectfont\itshape $subtitle$\par}
+      $endif$
+    \end{center}
+
+    \vskip0.6cm
+    \centerline{\rule{0.85\linewidth}{0.5pt}}
+    \vskip1.0cm
+
+    %% ── Degree statement ─────────────────────────────────────
+    $if(degree)$
+      \begin{center}
+        {\fontsize{12}{16}\selectfont
+          Este reporte final forma parte de la asignatura\\
+          Formulación y Evaluación de Proyectos de Inversión\\
+          y requisito parcial para obtener el titulo de\par}
+        \vskip0.3cm
+        {\fontsize{13}{17}\selectfont\bfseries $degree$\par}
+      \end{center}
+      \vskip1.3cm
+    $endif$
+
+    %% ── Autor/es (hasta 4) — patrón Monash (by-author) ─────────
+    %%\vfill
+    \begin{center}
+      {\fontsize{13}{17}\selectfont\bfseries Autor/es\par}
+      \vskip0.4cm
+      $for(by-author)$
+        \begin{minipage}[t]{0.45\textwidth}
+          \centering
+          {\fontsize{12}{16}\selectfont\textbf{$by-author.name.literal$}\par}
+          $if(by-author.degrees)$
+            \vskip0.1cm
+            {\fontsize{10}{14}\selectfont $by-author.degrees$\par}
+          $endif$
+          $for(by-author.affiliations)$
+            \vskip0.1cm
+            {\fontsize{10}{14}\selectfont $it.name$\par}
+          $endfor$
+          $for(by-author.email)$
+            \vskip0.1cm
+            {\fontsize{10}{14}\selectfont\texttt{$it$}\par}
+          $endfor$
+          $for(by-author.orcid)$
+            \vskip0.1cm
+            {\fontsize{9}{13}\selectfont
+              ORCID: \href{https://orcid.org/$it$}{$it$}\par}
+          $endfor$
+        \end{minipage}\hfill
+      $endfor$
+    \end{center}
+
+    %% ── Tutor ────────────────────────────────────────────────
+    $if(tutor)$
+      \begin{center}
+        \vskip0.9cm
+        {\fontsize{13}{17}\selectfont\bfseries Tutor \textbar{} Supervisor\par}
+        \vskip0.15cm
+        {\fontsize{12}{16}\selectfont $tutor$\par}
+      \end{center}
+    $endif$
+
+
+    %% ── Ciudad y Fecha ───────────────────────────────────────
+    \begin{center}
+      \vskip1.2cm
+      {\fontsize{12}{16}\selectfont
+        Asunci\'{o}n, $if(date)$$date$$else$\number\the\year$endif$\par}
+    \end{center}
+
+    %% ── Confidential banner (optional) ───────────────────────
+    $if(confidential)$
+      \vskip0.8cm
+      \begin{center}
+        \fbox{\parbox{0.75\textwidth}{\centering\small
+          \textbf{CONFIDENTIAL}\\[4pt]
+          This document is the property of Schneider \textbar{} Consulting Firm.\\
+          Do not reproduce or distribute without written permission.}}
+      \end{center}
+    $endif$
+
+    %% ── Blank verso page (following Monash pattern) ──────────
+    \newpage\mbox{}\thispagestyle{empty}\newpage
+  }
+}
+
+%% -- Standard metadata for PDF bookmarks & \maketitle call ---
+$if(title)$
+\title{$title$}
+$endif$
+$if(subtitle)$
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{%
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{$subtitle$}
+$endif$
+\date{$if(date)$$date$$else$\today$endif$}

@@ -1,0 +1,12 @@
+project:
+  type: website
+  output-dir: output
+
+
+
+# Render both formats:  quarto render
+# Render PDF only:      quarto render --to screport-pdf
+# Render HTML only:     quarto render --to screport-html
+format:
+  screport-pdf: default
+  screport-html: default
