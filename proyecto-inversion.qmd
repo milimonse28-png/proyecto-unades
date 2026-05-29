@@ -22,14 +22,18 @@ author:
     # orcid: "0000-0000-0000-0002"
     # affiliations:
     #   - name: "Universidad del Sol"
-
-lang: es
+      - name: Sebastian Ramirez
+    # degrees: "PhD"
+    # email: "autor2@institucion.edu"
+    # orcid: "0000-0000-0000-0002"
+    # affiliations:
+    #   - name: "Universidad del Sol
 
 # ── Front matter switches ──────────────────────────────────────
 declaration: false
 confidential: false   # set to true to add confidentiality banner
 
-acknowledgements: |
+acknowledgements: 
   Quisiera expresar mi más sincero agradecimiento a mi tutor/a, **Dr. Jane Smith**,
   por su orientación y valiosos comentarios a lo largo de esta investigación.
   Asimismo, agradezco al equipo de Schneider | Consulting Firm por su apoyo
@@ -62,7 +66,6 @@ format:
 
 
 ## Antecedentes
-
 
 
 ## Objetivos
