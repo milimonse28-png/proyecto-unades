@@ -1,5 +1,5 @@
 ---
-title: "Titulo de tu proyecto"
+title: "Salon de belleza Vicky Center - Ampliacion"
 subtitle: "Reporte Final"
 running-title: "Estudio de Factibilidad"   # short title for page headers
 date: "Marzo 2026"
@@ -22,7 +22,7 @@ author:
     # orcid: "0000-0000-0000-0002"
     # affiliations:
     #   - name: "Universidad del Sol"
-      - name: Sebastian Ramirez
+  - name: Sebastian Ramirez
     # degrees: "PhD"
     # email: "autor2@institucion.edu"
     # orcid: "0000-0000-0000-0002"
